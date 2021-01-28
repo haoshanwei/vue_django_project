@@ -5,10 +5,10 @@ Vue.use(Router);
 
 export default new Router({
     routes: [
-        {
-            path: '/',
-            redirect: '/dashboard'
-        },
+        // {
+        //     path: '/',
+        //     redirect: '/dashboard'
+        // },
         {
             path: '/',
             component: () => import(/* webpackChunkName: "home" */ '../components/common/Home.vue'),
