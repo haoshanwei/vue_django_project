@@ -1,6 +1,6 @@
 <template>
     <div class="login-wrap">
-        <img src="../../assets/img/logo.png" alt="logo">
+        <!-- <img src="../../assets/img/logo.png" alt="logo"> -->
         <div class="ms-login">
             <div class="ms-title">用户登录</div>
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="ms-content">
