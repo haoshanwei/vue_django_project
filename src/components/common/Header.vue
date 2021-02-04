@@ -4,7 +4,7 @@
         <div class="collapse-btn" @click="collapseChage">
             <i class="el-icon-menu"></i>
         </div>
-        <div class="logo">Lemon自动化测试平台</div>
+        <div class="logo">大灰狼来了</div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 全屏显示 -->
@@ -23,7 +23,7 @@
                     <span class="btn-bell-badge" v-if="message"></span>
                 </div> -->
                 <!-- 用户头像 -->
-                <div class="user-avator"><img src="../../assets/img/lemon_log.png"></div>
+                <div class="user-avator"><img src="../../assets/img/fq_log.png"></div>
                 <!-- 用户名下拉菜单 -->
                 <el-dropdown class="user-name" trigger="hover" @command="handleCommand">
                     <span class="el-dropdown-link">
