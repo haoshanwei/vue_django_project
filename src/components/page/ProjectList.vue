@@ -16,7 +16,7 @@
                 <el-input v-model="select_word" placeholder="输入筛选关键词" class="handle-input mr10"></el-input>
                 <!-- <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button> -->
             </div>
-            <el-table :data="data" border class="table" ref="multipleTable" @selection-change="handleSelectionChange" stripe>
+            <el-table :data="tableData" border class="table" ref="multipleTable" @selection-change="handleSelectionChange" stripe>
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
 
                 <el-table-column type="index" label="序号" width="55" align="center"></el-table-column>
@@ -27,13 +27,13 @@
                 <el-table-column prop="name" label="项目名称" width="250">
                     <template slot-scope="scope">
                         <el-popover trigger="hover" placement="top">
-                            <p>项目名: {{ scope.row.name }}</p>
-                            <p>接口数: {{ scope.row.interfaces }}</p>
-                            <p>套件数: {{ scope.row.testsuits }}</p>
-                            <p>用例数: {{ scope.row.testcases }}</p>
-                            <p>配置数: {{ scope.row.configures }}</p>
+                            <p>项目名: {{ scope.row.publish_app }}</p>
+                            <p>接口数: {{ scope.row.interfaces_count }}</p>
+                            <p>套件数: {{ scope.row.testsuites_count }}</p>
+                            <p>用例数: {{ scope.row.testcases_count }}</p>
+                            <p>配置数: {{ scope.row.configures_count }}</p>
                             <div slot="reference" class="name-wrapper">
-                                <el-tag size="medium">{{ scope.row.name }}</el-tag>
+                                <el-tag size="medium">{{ scope.row.publish_app }}</el-tag>
                             </div>
                         </el-popover>
                 </template>
@@ -182,6 +182,7 @@
         },
         created() {
             this.getData();     // 获取项目数据
+            console.log(this.getData())
             this.getEnvsIdNames();  // 获取环境变量ID和名称
         },
         computed: {
@@ -201,6 +202,8 @@
                         // ) {
                         //     return d;
                         // }
+                        console.log("select_word: ", this.select_word)
+                        console.log("=========")
                         if (d.name.indexOf(this.select_word) > -1 ||
                             d.publish_app.indexOf(this.select_word) > -1 ||
                             d.leader.indexOf(this.select_word) > -1 ||
