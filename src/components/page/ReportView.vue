@@ -54,7 +54,7 @@
                         <el-select v-model="select_case" slot="prepend" placeholder="请选择用例" style="width: 70%"
                                    @change="search_case()">
                             <el-option label="请选择" :value=null></el-option>
-                            <el-option :label=obj.name :value=obj.value v-for="obj in case_list"></el-option>
+                            <el-option :label=obj.name :value=obj.value v-for="(obj, index) in case_list" :key="index"></el-option>
                         </el-select>
                     </div>
                     <!--                    执行结果筛选-->
@@ -63,7 +63,7 @@
                         <el-select v-model="select_result" slot="prepend" placeholder="请选择执行结果" style="width: 70%"
                                    @change="search_case()">
                             <el-option label="请选择" :value=null></el-option>
-                            <el-option :label=obj.name :value=obj.value v-for="obj in result_list"></el-option>
+                            <el-option :label=obj.name :value=obj.value v-for="(obj, index) in result_list" :key="index"></el-option>
                         </el-select>
                     </div>
                     <!--                    右侧统计-->
@@ -116,7 +116,7 @@
                         </el-table-column>
                         <el-table-column
                                 label="用例名称"
-                                prop="record.name" align="center" show-overflow-tooltip=true>
+                                prop="record.name" align="center" :show-overflow-tooltip="true">
                         </el-table-column>
                         <el-table-column
                                 label="请求数据"
@@ -235,6 +235,8 @@
                     .then(response => {
                         // console.log("html report");
                         response.data.summary = JSON.parse(response.data.summary);
+                        console.log("---------")
+                        console.log(response.data)
                         // console.log(response.data);
                         this.ExecuteSummarization.reuslt = response.data.summary.success;
                         this.ExecuteSummarization.name = response.data.name;

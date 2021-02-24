@@ -42,7 +42,7 @@
                 items: [
                     {
                         icon: 'el-icon-lx-home',
-                        index: 'dashboard',
+                        index: 'dashboard_bk',
                         title: '系统首页'
                     },
                     {

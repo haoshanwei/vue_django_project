@@ -21,8 +21,8 @@
                         <el-input v-model="form.tester" suffix-icon="el-icon-user-solid" @focus="clearValidate('tester')" clearable></el-input>
                     </el-form-item>
 
-                    <el-form-item label="开发人员" prop="programmer" required>
-                        <el-input v-model="form.programmer" suffix-icon="el-icon-user-solid" @focus="clearValidate('programmer')" clearable></el-input>
+                    <el-form-item label="开发人员" prop="programer" required>
+                        <el-input v-model="form.programer" suffix-icon="el-icon-user-solid" @focus="clearValidate('programer')" clearable></el-input>
                     </el-form-item>
 
                     <el-form-item label="发布应用" prop="publish_app" required>
@@ -72,7 +72,7 @@
                     name: '',           // 项目名称
                     leader: '',         // 项目负责人
                     tester: '',         // 项目测试人员
-                    programmer: '',     // 开发人员
+                    programer: '',     // 开发人员
                     publish_app: '',    // 发布应用
                     desc: '',     // 简要描述
                 },
@@ -86,7 +86,7 @@
                     tester: [
                         { required: true, message: '请输入测试人员', trigger: 'blur' }
                     ],
-                    programmer: [
+                    programer: [
                         { required: true, message: '请输入开发人员', trigger: 'blur' }
                     ],
                     publish_app: [

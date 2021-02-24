@@ -18,8 +18,8 @@ let router = new Router({
             meta: { title: '系统首页' },
             children:[
                 {
-                    path: '/dashboard',
-                    component: resolve => require(['../components/page/Dashboard.vue'], resolve),
+                    path: '/dashboard_bk',
+                    component: resolve => require(['../components/page/Dashboard_bk.vue'], resolve),
                     meta: { title: '系统首页' }
                 },
                 {

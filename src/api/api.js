@@ -62,23 +62,23 @@ export const add_interface = params => { return axios.post(`${host}/interfaces/`
 export const run_by_interface = (interface_id, env_id) => { return axios.post(`${host}/interfaces/` + interface_id + '/run/', {'env_id': env_id}) };
 
 // 获取套件列表信息
-export const testsuites_list = params => { return axios.get(`${host}/testsuits/?page=` + params.page + '&size=' + params.size) };
+export const testsuites_list = params => { return axios.get(`${host}/testsuites/?page=` + params.page + '&size=' + params.size) };
 
 // 删除某个套件
-export const delete_testsuite = id => { return axios.delete(`${host}/testsuits/` + id + '/') };
+export const delete_testsuite = id => { return axios.delete(`${host}/testsuites/` + id + '/') };
 
 // 新增套件
-export const add_testsuite = params => { return axios.post(`${host}/testsuits/`, params) };
+export const add_testsuite = params => { return axios.post(`${host}/testsuites/`, params) };
 
 // 获取套件详情
-export const get_detail_testsuite = id => { return axios.get(`${host}/testsuits/`+ id + '/') };
+export const get_detail_testsuite = id => { return axios.get(`${host}/testsuites/`+ id + '/') };
 
 // 修改套件
-export const update_testsuite = (id, params) => { return axios.put(`${host}/testsuits/` + id + '/', params) };
+export const update_testsuite = (id, params) => { return axios.put(`${host}/testsuites/` + id + '/', params) };
 
 
 // 通过套件来运行用例
-export const run_by_testsuite = (testsuite_id, env_id) => { return axios.post(`${host}/testsuits/` + testsuite_id + '/run/', {'env_id': env_id}) };
+export const run_by_testsuite = (testsuite_id, env_id) => { return axios.post(`${host}/testsuites/` + testsuite_id + '/run/', {'env_id': env_id}) };
 
 // 获取某个项目下的所有接口信息
 export const interfaces_by_project_id = id => { return axios.get(`${host}/projects/` + id + '/interfaces/') };
@@ -157,7 +157,7 @@ export const add_env = params => { return axios.post(`${host}/envs/`, params) };
 // 获取所有统计信息
 export const summary = () => { return axios.get(`${host}/summary/`) };
 
-// 获取待办事项
+//获取待办事项
 export const backlog_list = params => { return axios.get(`${host}/backlog/?user_id=` + params.user_id)};
 
 // 删除待办事项

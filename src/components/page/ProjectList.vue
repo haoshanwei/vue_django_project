@@ -88,7 +88,7 @@
                 </el-form-item>
 
                 <el-form-item label="开发人员">
-                    <el-input v-model="form.programmer" clearable></el-input>
+                    <el-input v-model="form.programer" clearable></el-input>
                 </el-form-item>
 
                 <el-form-item label="应用名称">
@@ -207,7 +207,7 @@
                         if (d.name.indexOf(this.select_word) > -1 ||
                             d.publish_app.indexOf(this.select_word) > -1 ||
                             d.leader.indexOf(this.select_word) > -1 ||
-                            d.programmer.indexOf(this.select_word) > -1 ||
+                            d.programer.indexOf(this.select_word) > -1 ||
                             d.tester.indexOf(this.select_word) > -1
                         ) {
                             return d;
