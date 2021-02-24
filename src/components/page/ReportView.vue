@@ -146,7 +146,7 @@
 
 
 <script>
-    import echarts from 'echarts';
+    // import echarts from 'echarts';
     import { report_view } from '../../api/api';
 
     export default {
@@ -194,49 +194,49 @@
         },
         methods: {
             // 地图数据组装
-            drawPie(id) {
-                this.charts = echarts.init(document.getElementById(id));
-                this.charts.setOption({
-                    title: {
-                        text: this.text,
-                        subtext: this.subtext,
-                        left: 'center'
-                    },
-                    tooltip: {
-                        trigger: 'item',
-                        formatter: '{a} <br/>{b}: {c} ({d}%)'
-                    },
-                    legend: {
-                        orient: 'vertical',
-                        left: 10,
-                        data: this.option
-                    },
-                    series: [
-                        {
-                            name: '测试结果',
-                            type: 'pie',
-                            radius: '65%',
-                            center: ['60%', '47%'],
-                            data: this.opinionData,
-                            emphasis: {
-                                itemStyle: {
-                                    shadowBlur: 10,
-                                    shadowOffsetX: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            }
-                        }
-                    ]
-                });
-            },
+            // drawPie(id) {
+            //     this.charts = echarts.init(document.getElementById(id));
+            //     this.charts.setOption({
+            //         title: {
+            //             text: this.text,
+            //             subtext: this.subtext,
+            //             left: 'center'
+            //         },
+            //         tooltip: {
+            //             trigger: 'item',
+            //             formatter: '{a} <br/>{b}: {c} ({d}%)'
+            //         },
+            //         legend: {
+            //             orient: 'vertical',
+            //             left: 10,
+            //             data: this.option
+            //         },
+            //         series: [
+            //             {
+            //                 name: '测试结果',
+            //                 type: 'pie',
+            //                 radius: '65%',
+            //                 center: ['60%', '47%'],
+            //                 data: this.opinionData,
+            //                 emphasis: {
+            //                     itemStyle: {
+            //                         shadowBlur: 10,
+            //                         shadowOffsetX: 0,
+            //                         shadowColor: 'rgba(0, 0, 0, 0.5)'
+            //                     }
+            //                 }
+            //             }
+            //         ]
+            //     });
+            // },
             //    获取信息
             getData() {
                 report_view(this.report_id)
                     .then(response => {
                         // console.log("html report");
                         response.data.summary = JSON.parse(response.data.summary);
-                        console.log("---------")
-                        console.log(response.data)
+                        console.log("---------");
+                        console.log(response.data);
                         // console.log(response.data);
                         this.ExecuteSummarization.reuslt = response.data.summary.success;
                         this.ExecuteSummarization.name = response.data.name;
@@ -262,10 +262,10 @@
                         }];
 
                         // 调取地图
-                        this.$nextTick(function() {
-                            console.log('sdads');
-                            this.drawPie('main');
-                        });
+                        // this.$nextTick(function() {
+                        //     console.log('sdads');
+                        //     this.drawPie('main');
+                        // });
 
                     })
                     .catch(error => {
@@ -316,13 +316,13 @@
 
 
         },
-        mounted() {
-            // 地图调用
-            this.$nextTick(function() {
-                console.log('sdads');
-                this.drawPie('main');
-            });
-        }
+        // mounted() {
+        //     // 地图调用
+        //     this.$nextTick(function() {
+        //         console.log('sdads');
+        //         this.drawPie('main');
+        //     });
+        // }
     };
 </script>
 
