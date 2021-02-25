@@ -231,10 +231,13 @@
             // },
             //    获取信息
             getData() {
-                report_view(this.report_id)
+                console.log("-----------")
+                const report_id = this.$route.params.id
+                report_view(report_id)
                     .then(response => {
                         // console.log("html report");
-                        response.data.summary = JSON.parse(response.data.summary);
+                        console.log('respon', response)
+                        response.data.summary = response.data.summary;
                         console.log("---------");
                         console.log(response.data);
                         // console.log(response.data);
@@ -242,22 +245,22 @@
                         this.ExecuteSummarization.name = response.data.name;
                         this.ExecuteSummarization.total = response.data.count;
                         this.ExecuteSummarization.success = response.data.success;
-                        this.ExecuteSummarization.field = response.data.summary.stat.teststeps.errors;
-                        this.ExecuteSummarization.skip = response.data.summary.stat.teststeps.skipped;
+                        this.ExecuteSummarization.field = response.data.summary.stat.errors;
+                        this.ExecuteSummarization.skip = response.data.summary.stat.skipped;
                         this.ExecuteSummarization.start_time = response.data.summary.time.start_at;
                         this.ExecuteSummarization.end_time = response.data.summary.time.duration;
                         this.ExecuteSummarization.details = response.data.summary.details;
-                        this.case_list = response.data.case_list;
-                        this.result_list = response.data.result_list;
-                        this.text = response.data.name;
-                        this.case_details = response.data.case_details;
-                        this.serach_details = response.data.case_details;
+                        // this.case_list = response.data.case_list;
+                        // this.result_list = response.data.result_list;
+                        // this.text = response.data.name;
+                        // this.case_details = response.data.case_details;
+                        // this.serach_details = response.data.case_details;
                         // console.log(this.case_details)
                         this.opinionData = [{
                             'value': response.data.success,
                             'name': '成功'
-                        }, { 'value': response.data.summary.stat.teststeps.errors, 'name': '失败' }, {
-                            'value': response.data.summary.stat.teststeps.skipped,
+                        }, { 'value': response.data.summary.stat.errors, 'name': '失败' }, {
+                            'value': response.data.summary.stat.skipped,
                             'name': '跳过'
                         }];
 
@@ -269,6 +272,7 @@
 
                     })
                     .catch(error => {
+                        console.log("err:", error)
                         if (typeof error === 'object' && error.hasOwnProperty('status_code')) {
                             if (error.status_code === 404) {
                                 this.$router.push({ name: '404' });
